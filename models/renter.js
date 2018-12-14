@@ -1,7 +1,9 @@
-// Imports for Schemas and Db connection
+// Import for encryption
+const bcrypt = require('bcrypt');
+// Imports for mongoose Schemas
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-mongoose.set('useNewUrlParser', true);
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/RentMe');
+
 // =============================================================================
 
 var renterSchema = new mongoose.Schema({
@@ -10,11 +12,11 @@ var renterSchema = new mongoose.Schema({
     updatedAt        : { type: Date                    },
     email            : { type: String, required: true  },
     password         : { type: String, required: true  },
-    firstName        : { type: String,  required: true },
-    lastName         : { type: String,  required: true },
+    firstName        : { type: String, required: true  },
+    lastName         : { type: String, required: true  },
     phone            : { type: String                  },
     additContacts    : [{type: String                 }],
-    rentals          : [{type: String                  }]
+    rentals          : [{type: String                 }]
 });
 
 // MONGOOSE HOOKS for createdAt and updateAt  also encrypt the pass

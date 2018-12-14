@@ -6,7 +6,9 @@ const debug = true;
 const express = require('express');
 const app = express();
 const port = 1337;
-
+// mongoose connection to MONGODB
+mongoose.set('useNewUrlParser', true);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/RentMe' );
 // Instanciate our Router
 const router = express.Router();
 
