@@ -1,9 +1,6 @@
 // bcrypt is the node module used to encrypt the password
 const bcrypt = require('bcrypt');
-
-// hook up to MongoDB
 // ==============================================================================
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // Define renter Schema
