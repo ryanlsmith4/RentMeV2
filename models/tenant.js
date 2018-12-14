@@ -36,12 +36,12 @@ tenantSchema.pre('save', function(next) {
     this.updatedAt = now;
     if (!this.createdAt) {
         this.createdAt = now;
-    }
+    };
     // Encrypt password
     const user = this;
     if (!user.isModified('password')) {
         return next();
-    }
+    };
     bcrypt.genSalt(10, (err, salt) => {
         bycrpt.hash(user.password, salt, (err, hash) => {
             user.password = hash;
